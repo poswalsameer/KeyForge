@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -13,6 +13,9 @@ function App() {
   const[char, setChar] = useState(false);
 
   const [password, setPassword] = useState("");
+
+  //useRef hook to save the reference of password in the input field
+  const passwordRef = useRef(null);
 
   //useCallback which stores the previous state in the cache and renders new state with the addition of previous one
   const passwordGenerator = useCallback( () => {
@@ -48,6 +51,12 @@ function App() {
     passwordGenerator();
   }
 
+  //function to copy the input field of password to clipboard
+  const onClickCopy = () => {
+    window.navigator.clipboard.writeText(password);
+    alert("THE PASSWORD IS COPIED");
+  }
+
   return (
     <>
 
@@ -72,12 +81,12 @@ function App() {
 
         <input type="text" name="pass" placeholder='  Generated Password...' value={password} readOnly className=' h-10 w-2/6 rounded-lg border-4 border-orange-400 p-2 text-black font-bold ' />
 
-        <button className=' mx-5 font-bold bg-blue-600 h-10 w-20 rounded-lg' >COPY</button>
+        <button onClick={onClickCopy} ref={passwordRef}  className=' mx-5 font-bold bg-blue-600 h-10 w-20 rounded-lg hover:bg-white hover:text-blue-600 hover:border-2 hover:border-blue-600 ' >COPY</button>
 
       </div>
 
       <div className='flex justify-center m-5'>
-          <button className=' mt-5 font-bold bg-blue-600 h-12 w-28 rounded-lg ' onClick={newPass}>
+          <button className=' mt-5 font-bold bg-blue-600 h-12 w-28 rounded-lg hover:bg-white hover:text-blue-600 hover:border-2 hover:border-blue-600 ' onClick={newPass}>
             GENERATE
             </button>
       </div>
