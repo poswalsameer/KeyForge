@@ -61,62 +61,80 @@ function App() {
     <>
 
       {/* DIV FOR THE HEADING OF THE WEBSITE */}
-      <div className=' m-12 flex flex-row justify-center'>
+      <div className=' m-12 flex flex-row justify-center sm:m-12 sm:flex sm:flex-row sm:justify-center'>
 
-          <div className='text-8xl font-extrabold'>
+          <div className=' text-6xl font-extrabold sm:text-8xl sm:font-extrabold'>
               KEY
           </div>
 
-          <div className=' text-orange-400 text-8xl font-extrabold' >
+          <div className=' text-orange-400 text-6xl font-extrabold sm:text-orange-400 sm:text-8xl sm:font-extrabold' >
               FORGE
           </div>
 
       </div>
 
-      <div className='flex justify-center text-2xl text-blue-400 font-bold'>
+      <div className=' flex justify-center text-xl text-blue-400 font-bold
+      sm:flex sm:justify-center sm:text-2xl sm:text-blue-400 sm:font-bold'>
         Your GO-TO Password Generator
       </div>
       
-      <div className=' mt-20 flex flex-row justify-center' >
+      <div className=' mt-20 flex flex-row justify-center
+       sm:mt-20 sm:flex sm:flex-row sm:justify-center' >
 
-        <input type="text" name="pass" placeholder='  Generated Password...' value={password} readOnly className=' h-10 w-2/6 rounded-lg border-4 border-orange-400 p-2 text-black font-bold ' />
+        <input type="text" name="pass" placeholder='  Generated Password...' value={password} readOnly className=' h-10 w-2/6 rounded-lg border-4 border-orange-400 p-2 text-black font-bold
+        sm:h-10 sm:w-2/6 sm:rounded-lg sm:border-4 sm:border-orange-400 sm:p-2 sm:text-black sm:font-bold ' />
 
-        <button onClick={onClickCopy} ref={passwordRef}  className=' mx-5 font-bold bg-blue-600 h-10 w-20 rounded-lg hover:bg-white hover:text-blue-600 hover:border-2 hover:border-blue-600 ' >COPY</button>
+        <button onClick={onClickCopy} ref={passwordRef}  className=' mx-5 font-bold bg-blue-600 h-10 w-20 rounded-lg 
+         sm:mx-5 sm:font-bold sm:bg-blue-600 sm:h-10 sm:w-20 sm:rounded-lg hover:bg-white hover:text-blue-600 hover:border-2 hover:border-blue-600 ' >COPY</button>
 
       </div>
 
-      <div className='flex justify-center m-5'>
-          <button className=' mt-5 font-bold bg-blue-600 h-12 w-28 rounded-lg hover:bg-white hover:text-blue-600 hover:border-2 hover:border-blue-600 ' onClick={newPass}>
+      <div className=' flex justify-center m-5
+      sm:flex sm:justify-center sm:m-5'>
+
+          <button className='mt-5 font-bold bg-blue-600 h-12 w-28 rounded-lg
+           sm:mt-5 sm:font-bold sm:bg-blue-600 sm:h-12 sm:w-28 sm:rounded-lg hover:bg-white hover:text-blue-600 hover:border-2 hover:border-blue-600 ' onClick={newPass}>
             GENERATE
             </button>
       </div>
 
 
-          <div className='mt-16 flex flex-row justify-center'>
+          <div className='mt-16 flex flex-col justify-center items-center
+          sm:mt-16 sm:flex sm:flex-row sm:justify-center'>
 
-              <label htmlFor="length" className='mx-6 font-extrabold text-xl text-orange-400 ' >Length of your password ({passLength}) </label>
-              <input type="range" name="length" min={0} max={100} value={passLength} className='h-5 w-60 mx-6 mt-[6px] cursor-pointer ' 
+              <label htmlFor="length" className='mx-6 my-5 font-extrabold text-xl text-orange-400
+              sm:mx-6 sm:font-extrabold sm:text-xl sm:text-orange-400 ' >Length of your password ({passLength}) </label>
+
+              <input type="range" name="length" min={0} max={100} value={passLength} className='h-5 w-60 mx-6 mt-[6px] cursor-pointer
+              sm:h-5 sm:w-60 sm:mx-6 sm:mt-[6px] sm:cursor-pointer ' 
               onChange={ (e) => {setPassLength(e.target.value)} } />
               {/* this onChange is given to make the slider working otherwise the slider won't move */}
 
           </div>
 
-          <div className='flex flex-row justify-center' >
+          <div className='flex flex-col justify-center
+          sm:flex sm:flex-row sm:justify-center' >
 
-              <div className=' m-10 mt-20 flex flex-row justify-center' >
+              <div className='m-10 flex flex-row justify-center
+               sm:m-10 sm:mt-20 sm:flex sm:flex-row sm:justify-center' >
 
-                <label htmlFor="numbers" className=' mx-6 font-extrabold text-xl text-orange-400' >NUMBERS?</label>
-                <input type="checkbox" name="numbers" className='h-6 w-6 mt-[3.5px] '
+                <label htmlFor="numbers" className='mx-6 font-extrabold text-xl text-orange-400
+                 sm:mx-6 sm:font-extrabold sm:text-xl sm:text-orange-400' >NUMBERS?</label>
+                <input type="checkbox" name="numbers" className='h-6 w-6 mt-[3.5px]
+                sm:h-6 sm:w-6 sm:mt-[3.5px] '
                 onChange={ () => {setNumbers((prev) => !prev)} }/>
                 {/* onChange event for the useState hook of numbers checkbox, function is simple, */}
                 {/* just complement the previous state */}
 
               </div>
 
-              <div className=' m-10 mt-20 flex flex-row justify-center' >
+              <div className=' m-10 flex flex-row justify-center
+               sm:m-10 sm:mt-20 sm:flex sm:flex-row sm:justify-center' >
 
-                <label htmlFor="numbers" className=' mx-6 font-extrabold text-xl text-orange-400' >CHARACTERS?</label>
-                <input type="checkbox" name="numbers" className='h-6 w-6 mt-[3.5px] border-2 border-blue-600'
+                <label htmlFor="numbers" className='mx-6 font-extrabold text-xl text-orange-400
+                 sm:mx-6 sm:font-extrabold sm:text-xl sm:text-orange-400' >CHARACTERS?</label>
+                <input type="checkbox" name="numbers" className='h-6 w-6 mt-[3.5px] border-2 border-blue-600
+                sm:h-6 sm:w-6 sm:mt-[3.5px] sm:border-2 sm:border-blue-600'
                 onChange={ () => {setChar((prev) => !prev)} }/>
                 {/* similar to the above wala onChange */}
 
